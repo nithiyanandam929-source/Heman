@@ -1,0 +1,17 @@
+{
+  "name": "heman",
+  "version": "1.0.0",
+  "description": "Maison Noir — Salon & Atelier",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000 || python3 -m http.server 8000",
+    "lint": "echo 'No linter configured'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": ["salon", "atelier"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.1.0"
+  }
+}
