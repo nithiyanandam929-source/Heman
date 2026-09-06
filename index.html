@@ -3,633 +3,822 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LE NOIR — Salon &amp; Grooming House</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Maison Noir — Salon & Atelier</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap');
+
   :root{
-    --ink:#0a0908;
-    --charcoal:#151109;
-    --charcoal-2:#1c1610;
-    --gold:#c9a227;
-    --gold-light:#e9cc6e;
-    --bronze:#7c5a34;
-    --ivory:#f1e9d8;
-    --ivory-dim:#a89f8c;
-    --line:rgba(201,162,39,0.25);
-    --maxw:1180px;
+    --ink:#141210;
+    --charcoal:#1d1a17;
+    --panel:#242019;
+    --panel-2:#2b261f;
+    --brass:#b98a4d;
+    --brass-light:#d8b479;
+    --bone:#efe9dd;
+    --bone-dim:#b7ae9e;
+    --line:rgba(239,233,221,0.12);
+    --line-soft:rgba(239,233,221,0.07);
+    --ok:#7c9a72;
+    --radius:2px;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
   }
-  *{box-sizing:border-box;}
+  *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
     background:var(--ink);
-    color:var(--ivory);
-    font-family:'Manrope',sans-serif;
-    font-size:16px;
+    color:var(--bone);
+    font-family:var(--sans);
+    font-weight:400;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,.serif{
-    font-family:'Fraunces',serif;
-    font-weight:500;
-    margin:0;
-    color:var(--ivory);
-  }
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-  section{position:relative;}
-  ::selection{background:var(--gold);color:var(--ink);}
-  :focus-visible{outline:2px solid var(--gold-light);outline-offset:3px;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+  ::selection{background:var(--brass); color:var(--ink);}
 
-  /* ---------- Nav ---------- */
+  :focus-visible{outline:1px solid var(--brass-light); outline-offset:3px;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  @media(max-width:640px){ .wrap{padding:0 20px;} }
+
+  h1,h2,h3,h4{font-family:var(--serif); font-weight:500; letter-spacing:-0.01em; color:var(--bone);}
+
+  /* ---------- Header ---------- */
   header{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:22px 0;
-    transition:background .4s ease, padding .4s ease, border-color .4s ease;
-    border-bottom:1px solid transparent;
-  }
-  header.scrolled{
-    background:rgba(10,9,8,0.92);
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(20,18,16,0.86);
     backdrop-filter:blur(10px);
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
+    border-bottom:1px solid var(--line-soft);
   }
-  nav.wrap{display:flex;align-items:center;justify-content:space-between;}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.35rem;letter-spacing:0.06em;color:var(--ivory);}
-  .brand svg{width:30px;height:30px;flex:none;}
-  .nav-links{display:flex;align-items:center;gap:36px;}
-  .nav-links a{font-size:0.92rem;color:var(--ivory-dim);transition:color .25s ease;position:relative;}
-  .nav-links a:not(.btn):after{
-    content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--gold);
-    transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px; max-width:1180px; margin:0 auto;
   }
-  .nav-links a:not(.btn):hover{color:var(--ivory);}
-  .nav-links a:not(.btn):hover:after{transform:scaleX(1);}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:12px 26px;border:1px solid var(--gold);border-radius:2px;
-    font-size:0.88rem;letter-spacing:0.03em;color:var(--gold-light);
-    transition:background .3s ease,color .3s ease,border-color .3s ease;
-    cursor:pointer;background:transparent;font-family:'Manrope',sans-serif;font-weight:600;
+  .logo{font-family:var(--serif); font-size:22px; letter-spacing:0.02em; font-weight:500;}
+  .logo span{color:var(--brass-light);}
+  .nav-links{display:flex; gap:40px; align-items:center;}
+  .nav-links a{font-size:14px; color:var(--bone-dim); transition:color .2s;}
+  .nav-links a:hover{color:var(--bone);}
+  .nav-right{display:flex; align-items:center; gap:22px;}
+  .cart-btn{
+    position:relative; display:flex; align-items:center; gap:8px;
+    font-size:13px; color:var(--bone); border:1px solid var(--line); padding:9px 16px;
+    transition:border-color .2s, background .2s;
   }
-  .btn:hover{background:var(--gold);color:var(--ink);}
-  .btn-solid{background:var(--gold);color:var(--ink);}
-  .btn-solid:hover{background:var(--gold-light);border-color:var(--gold-light);}
-  .menu-toggle{display:none;background:none;border:none;color:var(--ivory);font-size:1.6rem;cursor:pointer;}
+  .cart-btn:hover{border-color:var(--brass);}
+  .cart-count{
+    position:absolute; top:-8px; right:-8px; background:var(--brass); color:var(--ink);
+    font-size:10px; font-weight:600; width:18px; height:18px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .menu-toggle{display:none; font-size:22px;}
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+  }
 
   /* ---------- Hero ---------- */
   .hero{
-    min-height:100vh;display:flex;align-items:flex-end;
+    min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden;
+    padding-top:90px;
     background:
-      linear-gradient(180deg, rgba(10,9,8,0.35) 0%, rgba(10,9,8,0.55) 55%, rgba(10,9,8,0.97) 100%),
-      url('https://images.unsplash.com/photo-1759134248487-e8baaf31e33e?w=2200&q=80&auto=format&fit=crop') center/cover no-repeat;
-    padding-top:140px;
+      radial-gradient(ellipse 900px 500px at 85% 15%, rgba(185,138,77,0.14), transparent 60%),
+      var(--ink);
   }
-  .hero-inner{padding-bottom:70px;}
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+    max-width:1180px; margin:0 auto; padding:60px 32px;
+  }
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr; padding:40px 20px;} }
+
+  .eyebrow{
+    font-size:13px; color:var(--brass-light); font-family:var(--serif); font-style:italic;
+    margin-bottom:22px; display:block;
+  }
   .hero h1{
-    font-size:clamp(2.6rem, 6vw, 5rem);
-    line-height:1.04;
-    max-width:820px;
-    font-weight:500;
+    font-size:clamp(42px, 6vw, 74px);
+    line-height:1.02;
+    margin-bottom:28px;
   }
-  .hero h1 em{font-style:italic;color:var(--gold-light);}
   .hero p.lede{
-    max-width:480px;color:var(--ivory-dim);font-size:1.05rem;margin-top:22px;
+    font-size:18px; color:var(--bone-dim); max-width:440px; margin-bottom:38px; line-height:1.7;
   }
-  .hero-ctas{display:flex;gap:18px;margin-top:38px;flex-wrap:wrap;}
-  .hero-stats{
-    display:flex;gap:0;margin-top:64px;border-top:1px solid var(--line);padding-top:26px;flex-wrap:wrap;
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 30px; font-size:14px; letter-spacing:0.02em;
+    border-radius:var(--radius); transition:all .25s ease;
   }
-  .hero-stats div{padding-right:48px;margin-right:48px;border-right:1px solid var(--line);}
-  .hero-stats div:last-child{border-right:none;margin-right:0;padding-right:0;}
-  .hero-stats .num{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--gold-light);}
-  .hero-stats .lbl{font-size:0.82rem;color:var(--ivory-dim);margin-top:2px;}
+  .btn-primary{background:var(--brass); color:var(--ink); font-weight:600;}
+  .btn-primary:hover{background:var(--brass-light);}
+  .btn-ghost{border:1px solid var(--line); color:var(--bone);}
+  .btn-ghost:hover{border-color:var(--brass); color:var(--brass-light);}
 
-  .reveal{opacity:0;transform:translateY(22px);animation:rise .9s ease forwards;}
-  .r1{animation-delay:.1s;} .r2{animation-delay:.28s;} .r3{animation-delay:.46s;} .r4{animation-delay:.64s;}
-  @keyframes rise{to{opacity:1;transform:translateY(0);}}
-  @media (prefers-reduced-motion:reduce){
-    .reveal{animation:none;opacity:1;transform:none;}
-    html{scroll-behavior:auto;}
+  .hero-visual{position:relative;}
+  .hero-frame{
+    aspect-ratio:4/5; border:1px solid var(--line);
+    background:
+      linear-gradient(160deg, var(--panel-2), var(--panel) 60%);
+    position:relative; overflow:hidden;
+    display:flex; align-items:flex-end; padding:28px;
   }
+  .hero-frame::before{
+    content:''; position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(115deg, transparent, transparent 58px, rgba(185,138,77,0.05) 58px, rgba(185,138,77,0.05) 59px);
+  }
+  .hero-frame .tag{
+    position:relative; z-index:1; font-size:13px; color:var(--bone-dim);
+    border-top:1px solid var(--line); padding-top:14px; width:100%;
+  }
+  .hero-frame .tag strong{display:block; font-family:var(--serif); font-size:20px; color:var(--bone); margin-bottom:4px; font-weight:500;}
+  .float-badge{
+    position:absolute; top:-18px; left:-18px; background:var(--ink); border:1px solid var(--brass);
+    padding:16px 20px; text-align:center;
+  }
+  .float-badge .num{font-family:var(--serif); font-size:26px; color:var(--brass-light); display:block;}
+  .float-badge .lbl{font-size:11px; color:var(--bone-dim);}
 
-  /* ---------- Ticker ---------- */
-  .ticker{
-    background:var(--charcoal);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-    overflow:hidden;padding:16px 0;
+  .marquee-strip{
+    border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
+    padding:20px 0; overflow:hidden; white-space:nowrap; background:var(--charcoal);
   }
-  .ticker-track{display:flex;width:max-content;animation:scroll 32s linear infinite;}
-  .ticker-track span{
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.05rem;color:var(--ivory-dim);
-    padding:0 28px;white-space:nowrap;display:flex;align-items:center;gap:28px;
-  }
-  .ticker-track span:after{content:'◆';color:var(--gold);font-size:0.5rem;font-style:normal;}
-  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .marquee-strip .track{display:inline-block; animation:scroll 32s linear infinite;}
+  .marquee-strip span{font-family:var(--serif); font-style:italic; font-size:16px; color:var(--bone-dim); margin:0 34px;}
+  .marquee-strip span::after{content:'—'; margin-left:34px; color:var(--brass);}
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  @media(prefers-reduced-motion:reduce){ .marquee-strip .track{animation:none;} }
 
-  /* ---------- Section heading ---------- */
-  .kicker{color:var(--gold);font-size:0.9rem;margin-bottom:14px;font-family:'Fraunces',serif;font-style:italic;}
-  .section-head{max-width:640px;margin-bottom:56px;}
-  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);}
+  /* ---------- Section shell ---------- */
   section{padding:110px 0;}
-
-  /* ---------- Philosophy ---------- */
-  .philosophy{display:grid;grid-template-columns:1.1fr 0.9fr;gap:70px;align-items:center;}
-  .philosophy img{border-radius:2px;filter:saturate(0.9);}
-  .philosophy p{color:var(--ivory-dim);max-width:460px;}
-  blockquote{
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;line-height:1.5;
-    color:var(--ivory);margin:30px 0 0;padding-left:24px;border-left:2px solid var(--gold);
-  }
-  blockquote cite{display:block;font-family:'Manrope',sans-serif;font-style:normal;font-size:0.82rem;color:var(--ivory-dim);margin-top:12px;}
+  @media(max-width:640px){ section{padding:70px 0;} }
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; gap:24px; flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);}
+  .section-head p{color:var(--bone-dim); max-width:340px; font-size:15px;}
 
   /* ---------- Services ---------- */
-  .services{background:var(--charcoal);}
+  .services{background:var(--charcoal); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);}
+  .service-list{border-top:1px solid var(--line);}
   .service-row{
-    display:grid;grid-template-columns:1fr auto;gap:8px 40px;
-    padding:30px 0;border-top:1px solid var(--line);align-items:baseline;
+    display:grid; grid-template-columns:60px 1.3fr 1fr auto; align-items:center; gap:28px;
+    padding:26px 0; border-bottom:1px solid var(--line); transition:padding-left .3s ease;
   }
-  .services .service-row:last-of-type{border-bottom:1px solid var(--line);}
-  .service-row .name{font-family:'Fraunces',serif;font-size:1.5rem;transition:color .25s ease;}
-  .service-row:hover .name{color:var(--gold-light);}
-  .service-row .price{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--gold);white-space:nowrap;}
-  .service-row .desc{grid-column:1/2;color:var(--ivory-dim);font-size:0.94rem;max-width:520px;}
-  .service-note{margin-top:36px;color:var(--ivory-dim);font-size:0.9rem;}
+  .service-row:hover{padding-left:14px; background:var(--line-soft);}
+  .service-row .idx{font-family:var(--serif); font-style:italic; color:var(--brass); font-size:15px;}
+  .service-row h3{font-size:21px; font-weight:500;}
+  .service-row .desc{color:var(--bone-dim); font-size:14px;}
+  .service-row .price{font-family:var(--serif); font-size:20px; color:var(--brass-light); text-align:right;}
+  .service-row .dur{display:block; font-size:12px; color:var(--bone-dim); font-family:var(--sans); text-align:right; margin-top:2px;}
+  @media(max-width:760px){
+    .service-row{grid-template-columns:1fr; text-align:left; gap:6px;}
+    .service-row .price{text-align:left;} .service-row .dur{text-align:left;}
+  }
 
-  /* ---------- Gallery ---------- */
-  .gallery-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:160px;gap:14px;
+  /* ---------- Shop ---------- */
+  .shop-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  @media(max-width:900px){ .shop-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .shop-grid{grid-template-columns:1fr;} }
+  .product{
+    background:var(--ink); padding:32px; display:flex; flex-direction:column; gap:16px;
   }
-  .gallery-grid figure{margin:0;position:relative;overflow:hidden;border-radius:2px;}
-  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
-  .gallery-grid figure:hover img{transform:scale(1.06);}
-  .gallery-grid figcaption{
-    position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
-    background:linear-gradient(0deg, rgba(0,0,0,0.75), transparent);
-    font-family:'Fraunces',serif;font-style:italic;font-size:0.95rem;color:var(--ivory);
+  .product-visual{
+    aspect-ratio:1; background:linear-gradient(150deg,var(--panel-2),var(--panel)); position:relative;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
   }
-  .g1{grid-column:span 2;grid-row:span 2;}
-  .g2{grid-column:span 2;grid-row:span 1;}
-  .g3{grid-column:span 1;grid-row:span 1;}
-  .g4{grid-column:span 1;grid-row:span 1;}
+  .product-visual .mono{
+    font-family:var(--serif); font-size:52px; color:var(--brass); opacity:0.5; font-style:italic;
+  }
+  .product-visual .stock-tag{
+    position:absolute; top:12px; left:12px; font-size:10px; letter-spacing:0.04em; color:var(--ok);
+    border:1px solid rgba(124,154,114,0.4); padding:4px 8px; background:rgba(20,18,16,0.7);
+  }
+  .product h3{font-size:19px;}
+  .product .cat{font-size:12px; color:var(--brass-light); font-family:var(--serif); font-style:italic;}
+  .product .desc{font-size:13.5px; color:var(--bone-dim); flex-grow:1;}
+  .product-foot{display:flex; align-items:center; justify-content:space-between; margin-top:6px;}
+  .product-foot .price{font-family:var(--serif); font-size:20px; color:var(--bone);}
+  .add-btn{
+    font-size:12px; border:1px solid var(--line); padding:10px 16px; transition:all .2s;
+  }
+  .add-btn:hover{background:var(--brass); border-color:var(--brass); color:var(--ink); font-weight:600;}
+  .add-btn.added{background:var(--ok); border-color:var(--ok); color:var(--ink);}
 
-  /* ---------- Testimonials ---------- */
-  .testimonials{background:var(--charcoal-2);}
-  .t-wrap{max-width:720px;margin:0 auto;text-align:center;}
-  .t-mark{font-family:'Fraunces',serif;font-size:3.4rem;color:var(--gold);line-height:1;margin-bottom:10px;}
-  .t-quote{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;line-height:1.5;min-height:150px;}
-  .t-name{margin-top:26px;color:var(--ivory-dim);font-size:0.9rem;}
-  .t-dots{display:flex;justify-content:center;gap:10px;margin-top:34px;}
-  .t-dots button{
-    width:8px;height:8px;border-radius:50%;border:1px solid var(--gold);background:transparent;
-    cursor:pointer;padding:0;
+  /* ---------- Gallery / stylists ---------- */
+  .team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  @media(max-width:900px){ .team-grid{grid-template-columns:repeat(2,1fr);} }
+  .stylist-card .portrait{
+    aspect-ratio:3/4; background:linear-gradient(165deg,var(--panel-2),var(--panel));
+    margin-bottom:16px; position:relative;
   }
-  .t-dots button.active{background:var(--gold);}
+  .stylist-card .portrait::after{
+    content:''; position:absolute; inset:0; border:1px solid var(--line);
+  }
+  .stylist-card h4{font-size:18px; margin-bottom:2px;}
+  .stylist-card .role{font-size:12.5px; color:var(--brass-light); font-family:var(--serif); font-style:italic;}
 
-  /* ---------- Reserve ---------- */
-  .reserve{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-  .reserve-info h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:18px;}
-  .reserve-info p{color:var(--ivory-dim);max-width:420px;}
-  .info-list{margin-top:36px;display:flex;flex-direction:column;gap:22px;}
-  .info-list div{border-top:1px solid var(--line);padding-top:16px;}
-  .info-list .lbl{font-size:0.82rem;color:var(--gold);margin-bottom:4px;font-family:'Fraunces',serif;font-style:italic;}
-  form{background:var(--charcoal);padding:40px;border-radius:2px;border:1px solid var(--line);}
-  .field{margin-bottom:20px;}
-  .field label{display:block;font-size:0.82rem;color:var(--ivory-dim);margin-bottom:8px;}
-  .field input,.field select,.field textarea{
-    width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);
-    color:var(--ivory);font-family:'Manrope',sans-serif;font-size:0.98rem;padding:10px 2px;
-    transition:border-color .25s ease;
+  /* ---------- Booking ---------- */
+  .booking{background:var(--charcoal); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);}
+  .booking-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:flex-start;}
+  @media(max-width:900px){ .booking-grid{grid-template-columns:1fr; gap:44px;} }
+  .booking-copy h2{font-size:clamp(30px,4vw,42px); margin-bottom:20px;}
+  .booking-copy p{color:var(--bone-dim); max-width:420px; margin-bottom:28px;}
+  .info-line{display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line); font-size:14px;}
+  .info-line:last-child{border-bottom:1px solid var(--line);}
+  .info-line b{color:var(--brass-light); font-weight:500; min-width:96px; display:inline-block;}
+
+  form.booking-form{display:flex; flex-direction:column; gap:18px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{font-size:12.5px; color:var(--bone-dim); letter-spacing:0.01em;}
+  .field input, .field select, .field textarea{
+    background:var(--panel); border:1px solid var(--line); color:var(--bone);
+    padding:14px 16px; font-size:14px; font-family:var(--sans); border-radius:var(--radius);
+    transition:border-color .2s;
   }
-  .field select option{background:var(--charcoal);}
-  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);outline:none;}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  form .btn-solid{width:100%;margin-top:8px;padding:15px;font-size:0.92rem;}
-  .form-success{
-    display:none;text-align:center;padding:30px 10px;font-family:'Fraunces',serif;font-style:italic;color:var(--gold-light);
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--brass);}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:520px){ .field-row{grid-template-columns:1fr;} }
+  .booking-form .btn-primary{margin-top:8px; justify-content:center;}
+  .confirm-msg{
+    display:none; border:1px solid var(--ok); color:var(--ok); padding:16px; font-size:14px; margin-top:6px;
   }
-  .form-error{
-    display:none;color:#e07a6b;font-size:0.85rem;margin-top:14px;text-align:center;
+
+  /* ---------- Testimonial ---------- */
+  .testimonial{
+    text-align:center; max-width:760px; margin:0 auto; padding:0 20px;
   }
-  form .btn-solid[disabled]{opacity:0.6;cursor:not-allowed;}
+  .testimonial blockquote{
+    font-family:var(--serif); font-size:clamp(22px,3vw,32px); font-weight:400; font-style:italic;
+    line-height:1.5; color:var(--bone); margin-bottom:24px;
+  }
+  .testimonial cite{font-size:13px; color:var(--bone-dim); font-style:normal;}
 
   /* ---------- Footer ---------- */
-  footer{border-top:1px solid var(--line);padding:60px 0 34px;}
-  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;margin-bottom:46px;}
-  .footer-nav{display:flex;gap:30px;flex-wrap:wrap;}
-  .footer-nav a{color:var(--ivory-dim);font-size:0.9rem;}
-  .footer-nav a:hover{color:var(--gold-light);}
-  .social{display:flex;gap:16px;}
-  .social a{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .25s ease;}
-  .social a:hover{border-color:var(--gold);}
-  .social svg{width:15px;height:15px;fill:var(--ivory-dim);}
-  .social a:hover svg{fill:var(--gold-light);}
-  .footer-bottom{display:flex;justify-content:space-between;color:var(--ivory-dim);font-size:0.82rem;flex-wrap:wrap;gap:10px;}
+  footer{border-top:1px solid var(--line-soft); padding:70px 0 34px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:60px;}
+  @media(max-width:760px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+  .footer-grid h5{font-size:12.5px; letter-spacing:0.03em; color:var(--brass-light); margin-bottom:18px; font-family:var(--sans); font-weight:600;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:10px;}
+  .footer-grid a{font-size:14px; color:var(--bone-dim); transition:color .2s;}
+  .footer-grid a:hover{color:var(--bone);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; padding-top:28px; border-top:1px solid var(--line-soft);
+    font-size:12.5px; color:var(--bone-dim); flex-wrap:wrap; gap:12px;
+  }
 
-  /* ---------- Responsive ---------- */
-  @media (max-width:920px){
-    .philosophy{grid-template-columns:1fr;gap:36px;}
-    .reserve{grid-template-columns:1fr;}
-    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;}
-    .g1{grid-column:span 2;grid-row:span 2;}
-    .g2{grid-column:span 2;}
-    .nav-links{
-      position:fixed;top:0;right:0;height:100vh;width:min(78vw,320px);
-      background:var(--charcoal);flex-direction:column;justify-content:center;align-items:flex-start;
-      padding:0 40px;gap:28px;transform:translateX(100%);transition:transform .4s ease;
-      border-left:1px solid var(--line);
-    }
-    .nav-links.open{transform:translateX(0);}
-    .menu-toggle{display:block;}
-    .field-row{grid-template-columns:1fr;}
-    .hero-stats div{margin-right:28px;padding-right:28px;}
+  /* ---------- Cart Drawer ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(10,9,8,0.6); z-index:200; opacity:0; pointer-events:none;
+    transition:opacity .3s ease;
   }
-  @media (max-width:600px){
-    .wrap{padding:0 22px;}
-    section{padding:80px 0;}
-    .service-row{grid-template-columns:1fr;}
-    .service-row .price{grid-row:1;justify-self:end;}
-    form{padding:26px;}
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width:420px; max-width:92vw;
+    background:var(--charcoal); border-left:1px solid var(--line); z-index:201;
+    transform:translateX(100%); transition:transform .35s cubic-bezier(.4,0,.2,1);
+    display:flex; flex-direction:column;
   }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:26px 28px; border-bottom:1px solid var(--line);
+  }
+  .drawer-head h3{font-size:20px;}
+  .drawer-close{font-size:22px; color:var(--bone-dim);}
+  .drawer-body{flex:1; overflow-y:auto; padding:20px 28px;}
+  .cart-item{display:grid; grid-template-columns:56px 1fr auto; gap:14px; align-items:center; padding:16px 0; border-bottom:1px solid var(--line-soft);}
+  .cart-item .thumb{width:56px; height:56px; background:linear-gradient(150deg,var(--panel-2),var(--panel)); display:flex; align-items:center; justify-content:center; font-family:var(--serif); color:var(--brass); font-style:italic;}
+  .cart-item h4{font-size:14.5px; margin-bottom:4px;}
+  .cart-item .meta{font-size:12px; color:var(--bone-dim);}
+  .qty-ctrl{display:flex; align-items:center; gap:10px; margin-top:6px;}
+  .qty-ctrl button{border:1px solid var(--line); width:22px; height:22px; font-size:13px; line-height:1;}
+  .cart-item .line-price{font-family:var(--serif); font-size:15px; text-align:right;}
+  .cart-item .remove{font-size:11px; color:var(--bone-dim); text-decoration:underline; margin-top:6px; display:block; text-align:right;}
+  .empty-cart{text-align:center; padding:60px 10px; color:var(--bone-dim); font-size:14px;}
+  .drawer-foot{padding:22px 28px 28px; border-top:1px solid var(--line);}
+  .subtotal-row{display:flex; justify-content:space-between; margin-bottom:18px; font-size:15px;}
+  .subtotal-row b{font-family:var(--serif); font-size:20px; color:var(--brass-light);}
+  .drawer-foot .btn-primary{width:100%; justify-content:center;}
+
+  /* ---------- Checkout Modal ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(10,9,8,0.72); z-index:300; opacity:0; pointer-events:none;
+    display:flex; align-items:center; justify-content:center; padding:20px; transition:opacity .3s;
+  }
+  .modal-overlay.open{opacity:1; pointer-events:auto;}
+  .modal{
+    background:var(--charcoal); border:1px solid var(--line); max-width:520px; width:100%;
+    max-height:90vh; overflow-y:auto; padding:38px; transform:translateY(16px); transition:transform .3s;
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:26px;}
+  .modal-head h3{font-size:24px;}
+  .modal-close{font-size:22px; color:var(--bone-dim);}
+  .pay-tabs{display:flex; gap:10px; margin-bottom:22px;}
+  .pay-tab{flex:1; text-align:center; padding:12px; border:1px solid var(--line); font-size:13px; transition:all .2s;}
+  .pay-tab.active{border-color:var(--brass); background:rgba(185,138,77,0.1); color:var(--brass-light);}
+  .card-visual{
+    background:linear-gradient(135deg,#2b2620,#181513); border:1px solid var(--line); border-radius:10px;
+    padding:22px; margin-bottom:22px; position:relative; overflow:hidden; height:150px;
+  }
+  .card-visual::after{content:''; position:absolute; width:220px; height:220px; background:radial-gradient(circle,rgba(185,138,77,0.18),transparent 70%); top:-80px; right:-60px;}
+  .card-visual .chip{width:38px; height:28px; background:linear-gradient(135deg,var(--brass-light),var(--brass)); border-radius:5px; margin-bottom:26px;}
+  .card-visual .num{font-family:'Inter'; letter-spacing:2px; font-size:17px; color:var(--bone); margin-bottom:16px;}
+  .card-visual .row{display:flex; justify-content:space-between; font-size:10.5px; color:var(--bone-dim); letter-spacing:0.04em;}
+  .card-visual .row span:last-child{color:var(--bone); font-size:12px;}
+  .modal .field-row{margin-bottom:0;}
+  .lock-note{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--bone-dim); margin-top:18px; justify-content:center;}
+  .order-summary{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; margin:20px 0; font-size:14px;}
+  .order-summary .row{display:flex; justify-content:space-between; padding:6px 0; color:var(--bone-dim);}
+  .order-summary .row.total{color:var(--bone); font-family:var(--serif); font-size:18px; padding-top:12px; border-top:1px solid var(--line-soft); margin-top:6px;}
+
+  .success-view{text-align:center; padding:20px 0;}
+  .success-icon{
+    width:60px; height:60px; border:1px solid var(--ok); border-radius:50%; display:flex; align-items:center;
+    justify-content:center; margin:0 auto 22px; color:var(--ok); font-size:26px;
+  }
+  .success-view h3{font-size:24px; margin-bottom:10px;}
+  .success-view p{color:var(--bone-dim); font-size:14px; margin-bottom:26px;}
+  .order-id{font-family:var(--serif); color:var(--brass-light); font-style:italic;}
+
+  .toast{
+    position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--bone); color:var(--ink); padding:14px 24px; font-size:13.5px; z-index:400;
+    opacity:0; transition:all .3s ease; pointer-events:none; font-weight:500;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
 
-<header id="site-header">
-  <nav class="wrap">
-    <a href="#top" class="brand">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="20" r="19" stroke="#C9A227" stroke-width="1"/>
-        <path d="M13 27V13h3.2l3.8 9 3.8-9H27v14h-2.5V17.2L20.8 27h-1.6l-3.7-9.8V27H13z" fill="#C9A227"/>
-      </svg>
-      LE NOIR
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
-    <div class="nav-links" id="navLinks">
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">Maison <span>Noir</span></a>
+    <div class="nav-links">
       <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#testimonials">Reviews</a>
-      <a href="#reserve">Contact</a>
-      <a href="#reserve" class="btn">Book Now</a>
+      <a href="#shop">Shop</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#book">Book</a>
+    </div>
+    <div class="nav-right">
+      <button class="cart-btn" onclick="toggleCart(true)">
+        Bag <span id="cart-total-badge">$0</span>
+        <span class="cart-count" id="cart-count" style="display:none;">0</span>
+      </button>
     </div>
   </nav>
 </header>
 
 <section class="hero" id="top">
-  <div class="wrap hero-inner">
-    <h1 class="reveal r1">Where every detail<br>becomes <em>a ritual.</em></h1>
-    <p class="lede reveal r2">LE NOIR is a private grooming house for the modern gentleman and woman — precision cuts, traditional shaves and quiet luxury, by appointment only.</p>
-    <div class="hero-ctas reveal r3">
-      <a href="#reserve" class="btn btn-solid">Reserve a Chair</a>
-      <a href="#services" class="btn">View Services</a>
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow">Est. 2016 — Chennai's private salon atelier</span>
+      <h1>Beauty, held<br>to a higher standard.</h1>
+      <p class="lede">Maison Noir pairs master colorists and stylists with a considered line of haircare, sold the way it's practiced — with precision, patience, and no shortcuts.</p>
+      <div class="btn-row">
+        <a href="#book" class="btn btn-primary">Reserve a chair</a>
+        <a href="#shop" class="btn btn-ghost">Shop the line</a>
+      </div>
     </div>
-    <div class="hero-stats reveal r4">
-      <div><div class="num">Est. 2024</div><div class="lbl">Chennai</div></div>
-      <div><div class="num">06</div><div class="lbl">Signature services</div></div>
-      <div><div class="num">By appointment</div><div class="lbl">Only, no walk-ins</div></div>
+    <div class="hero-visual">
+      <div class="float-badge"><span class="num">4.9</span><span class="lbl">/5, 1,200+ visits</span></div>
+      <div class="hero-frame">
+        <div class="tag"><strong>The Colour Bar</strong>Balayage, gloss & correction — by appointment only</div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="ticker">
-  <div class="ticker-track" id="tickerTrack">
-    <span>Precision Cuts</span><span>Traditional Shaves</span><span>Beard Sculpting</span><span>Facial Therapy</span><span>Signature Massage</span>
-    <span>Precision Cuts</span><span>Traditional Shaves</span><span>Beard Sculpting</span><span>Facial Therapy</span><span>Signature Massage</span>
+<div class="marquee-strip">
+  <div class="track">
+    <span>Balayage</span><span>Precision Cut</span><span>Keratin Therapy</span><span>Bridal Styling</span><span>Scalp Ritual</span><span>Colour Correction</span>
+    <span>Balayage</span><span>Precision Cut</span><span>Keratin Therapy</span><span>Bridal Styling</span><span>Scalp Ritual</span><span>Colour Correction</span>
   </div>
 </div>
 
-<section id="philosophy">
-  <div class="wrap philosophy">
-    <div>
-      <div class="kicker">The house philosophy</div>
-      <h2 style="font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:20px;">Grooming, done the unhurried way.</h2>
-      <p>LE NOIR was built on a simple belief — grooming isn't a transaction, it's a ritual worth doing properly. Every chair, blade and towel is chosen with the same care as the cut itself. We keep our books small so every appointment gets full attention, not a rushed slot between two others.</p>
-      <blockquote>"A good barber remembers your name. A great one remembers how you like your fade."<cite>— The House Motto</cite></blockquote>
-    </div>
-    <img src="https://images.unsplash.com/photo-1682989356229-a244c8903492?w=1000&q=80&auto=format&fit=crop" alt="Barber giving a precision haircut at LE NOIR">
-  </div>
-</section>
-
-<section id="services" class="services">
+<section class="services" id="services">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker">What we offer</div>
-      <h2>Six services, one standard.</h2>
+      <h2>Services & rates</h2>
+      <p>Every service opens with a consultation — pricing reflects hair length and complexity, starting from the rate shown.</p>
     </div>
-
-    <div class="service-row">
-      <div class="name">Signature Haircut</div>
-      <div class="price">₹500</div>
-      <div class="desc">Consultation, wash, precision cut and style finish tailored to your face shape.</div>
-    </div>
-    <div class="service-row">
-      <div class="name">Beard Grooming</div>
-      <div class="price">₹400</div>
-      <div class="desc">Shape, line-up and condition for a beard that holds its form.</div>
-    </div>
-    <div class="service-row">
-      <div class="name">Classic Hot Shave</div>
-      <div class="price">₹300</div>
-      <div class="desc">Straight-razor shave with hot towels and pre-shave oil, the old way.</div>
-    </div>
-    <div class="service-row">
-      <div class="name">Revitalising Facial</div>
-      <div class="price">₹800</div>
-      <div class="desc">Deep cleanse, steam and mask suited to your skin type.</div>
-    </div>
-    <div class="service-row">
-      <div class="name">Signature Massage</div>
-      <div class="price">₹600</div>
-      <div class="desc">Head, neck and shoulder release to finish the appointment properly.</div>
-    </div>
-    <div class="service-row">
-      <div class="name">The Full House Package</div>
-      <div class="price">₹1,500</div>
-      <div class="desc">Haircut, beard grooming, hot shave and facial in one unhurried sitting.</div>
-    </div>
-
-    <p class="service-note">Prices shown are indicative for a standard visit and may vary with add-ons. All services are by appointment.</p>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">Inside the house</div>
-      <h2>A quiet room, done properly.</h2>
-    </div>
-    <div class="gallery-grid">
-      <figure class="g1">
-        <img src="https://images.unsplash.com/photo-1759134248487-e8baaf31e33e?w=1200&q=80&auto=format&fit=crop" alt="LE NOIR salon interior">
-        <figcaption>The Chair</figcaption>
-      </figure>
-      <figure class="g2">
-        <img src="https://images.unsplash.com/photo-1621607512026-ba3e0857c6f4?w=900&q=80&auto=format&fit=crop" alt="Barber scissors and tools">
-        <figcaption>The Instruments</figcaption>
-      </figure>
-      <figure class="g3">
-        <img src="https://images.unsplash.com/photo-1682989356229-a244c8903492?w=700&q=80&auto=format&fit=crop" alt="Precision haircut in progress">
-        <figcaption>The Cut</figcaption>
-      </figure>
-      <figure class="g4">
-        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700&q=80&auto=format&fit=crop" alt="Facial treatment at LE NOIR">
-        <figcaption>The Finish</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials" class="testimonials">
-  <div class="wrap t-wrap">
-    <div class="t-mark">"</div>
-    <div class="t-quote" id="tQuote">I've had my hair cut in four cities. This is the first place that asked what I actually wanted before touching the clippers.</div>
-    <div class="t-name" id="tName">Arjun R. — Regular since 2024</div>
-    <div class="t-dots" id="tDots">
-      <button class="active" data-i="0" aria-label="Testimonial 1"></button>
-      <button data-i="1" aria-label="Testimonial 2"></button>
-      <button data-i="2" aria-label="Testimonial 3"></button>
-    </div>
-  </div>
-</section>
-
-<section id="reserve">
-  <div class="wrap reserve">
-    <div class="reserve-info">
-      <div class="kicker">By appointment</div>
-      <h2>Reserve your chair.</h2>
-      <p>Tell us what you're after and we'll confirm your slot by phone or WhatsApp within the day. Walk-ins are seated only if the book allows it.</p>
-      <div class="info-list">
-        <div><div class="lbl">Address</div>Update with your salon's street address, area and city.</div>
-        <div><div class="lbl">Hours</div>Tue – Sun, 10:00 AM – 8:00 PM · Closed Mondays</div>
-        <div><div class="lbl">Phone / WhatsApp</div>+91 95660 31143</div>
+    <div class="service-list">
+      <div class="service-row">
+        <span class="idx">01</span>
+        <div><h3>Signature Cut & Style</h3></div>
+        <div class="desc">Consultation, wash, precision cut, blow-dry finish.</div>
+        <div><span class="price">₹1,800</span><span class="dur">45 min</span></div>
+      </div>
+      <div class="service-row">
+        <span class="idx">02</span>
+        <div><h3>Full Balayage</h3></div>
+        <div class="desc">Hand-painted colour with gloss and toning.</div>
+        <div><span class="price">₹6,500</span><span class="dur">3 hr</span></div>
+      </div>
+      <div class="service-row">
+        <span class="idx">03</span>
+        <div><h3>Keratin Smoothing</h3></div>
+        <div class="desc">Frizz control treatment, lasts up to 5 months.</div>
+        <div><span class="price">₹5,200</span><span class="dur">2.5 hr</span></div>
+      </div>
+      <div class="service-row">
+        <span class="idx">04</span>
+        <div><h3>Scalp Ritual & Deep Repair</h3></div>
+        <div class="desc">Exfoliation, massage, and bond-repair mask.</div>
+        <div><span class="price">₹2,400</span><span class="dur">1 hr</span></div>
+      </div>
+      <div class="service-row">
+        <span class="idx">05</span>
+        <div><h3>Bridal Styling Trial</h3></div>
+        <div class="desc">Full look trial with consultation for the day-of team.</div>
+        <div><span class="price">₹4,000</span><span class="dur">2 hr</span></div>
       </div>
     </div>
-    <div>
-      <form id="bookingForm">
-        <div class="field">
-          <label for="fname">Full name</label>
-          <input id="fname" type="text" required placeholder="Your name">
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="fphone">Phone number</label>
-            <input id="fphone" type="tel" required placeholder="+91">
-          </div>
-          <div class="field">
-            <label for="fservice">Service</label>
-            <select id="fservice" required>
-              <option value="">Choose a service</option>
-              <option value="haircut">Signature Haircut — ₹500</option>
-              <option value="beard">Beard Grooming — ₹400</option>
-              <option value="shave">Classic Hot Shave — ₹300</option>
-              <option value="facial">Revitalising Facial — ₹800</option>
-              <option value="massage">Signature Massage — ₹600</option>
-              <option value="fullhouse">The Full House Package — ₹1,500</option>
-            </select>
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="fdate">Preferred date</label>
-            <input id="fdate" type="date">
-          </div>
-          <div class="field">
-            <label for="ftime">Preferred time</label>
-            <input id="ftime" type="time">
-          </div>
-        </div>
-        <div class="field">
-          <label for="fnotes">Notes (optional)</label>
-          <textarea id="fnotes" rows="2" placeholder="Anything we should know"></textarea>
-        </div>
-        <button type="submit" class="btn btn-solid" id="bookBtn">Pay &amp; Confirm Reservation</button>
-        <div class="form-error" id="formError"></div>
-        <div class="form-success" id="formSuccess">Payment received — your reservation is confirmed. Look out for a WhatsApp confirmation.</div>
-      </form>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The Atelier line</h2>
+      <p>Retail-sized formulas from the products we use in-chair — sold in a limited run.</p>
     </div>
+  </div>
+  <div class="shop-grid" id="product-grid"></div>
+</section>
+
+<section id="atelier" style="background:var(--charcoal); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The chairs</h2>
+      <p>Four stylists, each trained abroad, each with a distinct hand.</p>
+    </div>
+    <div class="team-grid">
+      <div class="stylist-card">
+        <div class="portrait"></div>
+        <h4>Meera Aditya</h4>
+        <div class="role">Colour Director</div>
+      </div>
+      <div class="stylist-card">
+        <div class="portrait"></div>
+        <h4>Rohan Vetri</h4>
+        <div class="role">Master Stylist</div>
+      </div>
+      <div class="stylist-card">
+        <div class="portrait"></div>
+        <h4>Ayesha Kader</h4>
+        <div class="role">Texture Specialist</div>
+      </div>
+      <div class="stylist-card">
+        <div class="portrait"></div>
+        <h4>Vikram Sen</h4>
+        <div class="role">Bridal Lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="testimonial wrap">
+    <blockquote>"The only salon I've trusted with a full colour correction. They talked me out of what I asked for and gave me something better."</blockquote>
+    <cite>— Divya R., client since 2019</cite>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="wrap booking-grid">
+    <div class="booking-copy">
+      <h2>Reserve your chair</h2>
+      <p>Appointments are confirmed within 2 hours. A refundable ₹500 hold is required for services over 90 minutes.</p>
+      <div class="info-line"><b>Address</b> 14 Sannathi Street, Chengalpattu, TN 603001</div>
+      <div class="info-line"><b>Hours</b> Tue–Sun, 10:00 – 20:00</div>
+      <div class="info-line"><b>Phone</b> +91 98765 43210</div>
+    </div>
+    <form class="booking-form" id="booking-form">
+      <div class="field-row">
+        <div class="field"><label for="bname">Full name</label><input id="bname" required placeholder="Your name"></div>
+        <div class="field"><label for="bphone">Phone</label><input id="bphone" required placeholder="10-digit number"></div>
+      </div>
+      <div class="field">
+        <label for="bservice">Service</label>
+        <select id="bservice">
+          <option>Signature Cut & Style — ₹1,800</option>
+          <option>Full Balayage — ₹6,500</option>
+          <option>Keratin Smoothing — ₹5,200</option>
+          <option>Scalp Ritual & Deep Repair — ₹2,400</option>
+          <option>Bridal Styling Trial — ₹4,000</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="bdate">Preferred date</label><input id="bdate" type="date" required></div>
+        <div class="field"><label for="btime">Preferred time</label><input id="btime" type="time" required></div>
+      </div>
+      <div class="field"><label for="bnote">Notes (optional)</label><textarea id="bnote" rows="3" placeholder="Anything your stylist should know"></textarea></div>
+      <button type="submit" class="btn btn-primary">Confirm appointment</button>
+      <div class="confirm-msg" id="booking-confirm">Your appointment request has been received — we'll confirm by phone shortly.</div>
+    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="footer-top">
-      <a href="#top" class="brand">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="19" stroke="#C9A227" stroke-width="1"/>
-          <path d="M13 27V13h3.2l3.8 9 3.8-9H27v14h-2.5V17.2L20.8 27h-1.6l-3.7-9.8V27H13z" fill="#C9A227"/>
-        </svg>
-        LE NOIR
-      </a>
-      <div class="footer-nav">
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#testimonials">Reviews</a>
-        <a href="#reserve">Reserve</a>
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">Maison <span>Noir</span></a>
+        <p style="color:var(--bone-dim); font-size:14px; margin-top:16px; max-width:260px;">A private salon atelier and retail line based in Chengalpattu, Tamil Nadu.</p>
       </div>
-      <div class="social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3 .01 4.1.06 1.1.05 1.8.22 2.4.46.7.27 1.2.6 1.7 1.1.5.5.9 1 1.1 1.7.24.6.4 1.3.46 2.4.05 1.1.06 1.4.06 4.1s-.01 3-.06 4.1c-.05 1.1-.22 1.8-.46 2.4-.27.7-.6 1.2-1.1 1.7-.5.5-1 .9-1.7 1.1-.6.24-1.3.4-2.4.46-1.1.05-1.4.06-4.1.06s-3-.01-4.1-.06c-1.1-.05-1.8-.22-2.4-.46-.7-.27-1.2-.6-1.7-1.1-.5-.5-.9-1-1.1-1.7-.24-.6-.4-1.3-.46-2.4C2.01 15 2 14.7 2 12s.01-3 .06-4.1c.05-1.1.22-1.8.46-2.4.27-.7.6-1.2 1.1-1.7.5-.5 1-.9 1.7-1.1.6-.24 1.3-.4 2.4-.46C9 2.01 9.3 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm0 8.2a3.2 3.2 0 110-6.4 3.2 3.2 0 010 6.4zm5.4-8.4a1.2 1.2 0 100-2.4 1.2 1.2 0 000 2.4z"/></svg></a>
-        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.1 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1zM12 2a10 10 0 00-8.6 15L2 22l5.1-1.3A10 10 0 1012 2zm0 18.2c-1.5 0-3-.4-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3a8.2 8.2 0 1114.7-4.9 8.2 8.2 0 01-7.8 8.6z"/></svg></a>
+      <div>
+        <h5>VISIT</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#book">Book online</a></li>
+          <li><a href="#atelier">Our stylists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>SHOP</h5>
+        <ul>
+          <li><a href="#shop">All products</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>FOLLOW</h5>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 LE NOIR Salon &amp; Grooming House.</span>
-      <span>Precision. Patience. Presentation.</span>
+    <div class="foot-bottom">
+      <span>© 2026 Maison Noir Salon & Atelier. Sample site for client preview.</span>
+      <span>Chengalpattu, Tamil Nadu, India</span>
     </div>
   </div>
 </footer>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Cart Drawer -->
+<div class="overlay" id="overlay" onclick="toggleCart(false); closeCheckout();"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Your bag</h3>
+    <button class="drawer-close" onclick="toggleCart(false)">&times;</button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot">
+    <div class="subtotal-row"><span>Subtotal</span><b id="drawer-subtotal">$0</b></div>
+    <button class="btn btn-primary" onclick="openCheckout()">Checkout</button>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal-overlay" id="checkout-overlay">
+  <div class="modal" id="checkout-modal">
+    <!-- content injected by JS -->
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
 <script>
-  // Sticky header
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // Mobile menu
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-  // Testimonials
-  const testimonials = [
-    { quote: "I've had my hair cut in four cities. This is the first place that asked what I actually wanted before touching the clippers.", name: "Arjun R. — Regular since 2024" },
-    { quote: "The hot shave alone is worth the visit. I leave feeling like I fixed something more than my face.", name: "Karthik M. — Member" },
-    { quote: "Booked the Full House Package for my wedding morning. Calmest I've felt all week.", name: "Vishal S. — Client" }
+  const PRODUCTS = [
+    {id:'p1', name:'Gloss Reviving Oil', cat:'Finishing', desc:'Lightweight argan-blend oil for shine without weight.', price:1450},
+    {id:'p2', name:'Bond Repair Mask', cat:'Treatment', desc:'Weekly deep mask for chemically treated hair.', price:1950},
+    {id:'p3', name:'Volumising Root Spray', cat:'Styling', desc:'Buildable root lift with heat protection.', price:1100},
+    {id:'p4', name:'Silk Cleanse Shampoo', cat:'Wash', desc:'Sulphate-free, colour-safe daily cleanser.', price:990},
+    {id:'p5', name:'Overnight Scalp Serum', cat:'Treatment', desc:'Peptide serum for scalp density and comfort.', price:2200},
+    {id:'p6', name:'Heat Shield Mist', cat:'Styling', desc:'Protects up to 230°C, adds soft hold.', price:1250},
   ];
-  const tQuote = document.getElementById('tQuote');
-  const tName = document.getElementById('tName');
-  const dots = document.querySelectorAll('#tDots button');
-  dots.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const i = +btn.dataset.i;
-      tQuote.textContent = testimonials[i].quote;
-      tName.textContent = testimonials[i].name;
-      dots.forEach(d => d.classList.remove('active'));
-      btn.classList.add('active');
-    });
+
+  const grid = document.getElementById('product-grid');
+  PRODUCTS.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'product';
+    el.innerHTML = `
+      <div class="product-visual">
+        <span class="stock-tag">In stock</span>
+        <span class="mono">${p.name.split(' ').map(w=>w[0]).join('').slice(0,2)}</span>
+      </div>
+      <div class="cat">${p.cat}</div>
+      <h3>${p.name}</h3>
+      <div class="desc">${p.desc}</div>
+      <div class="product-foot">
+        <span class="price">₹${p.price.toLocaleString('en-IN')}</span>
+        <button class="add-btn" data-id="${p.id}" onclick="addToCart('${p.id}', this)">Add to bag</button>
+      </div>
+    `;
+    grid.appendChild(el);
   });
 
-  // ===== Booking + payment — fully standalone, no backend required =====
-  //
-  // SECURITY NOTE, read before going live with real money:
-  // Because there's no server here, the payment amount is set in THIS file
-  // (in SERVICES below) and Razorpay Checkout is opened directly from the
-  // browser. That means:
-  //   - There's no way to cryptographically verify a payment succeeded
-  //     (that requires a server holding your secret key — see the
-  //     backend project if you want that guarantee).
-  //   - Someone technical could edit the page's local copy to try to submit
-  //     a wrong amount, though your Razorpay dashboard is still the source
-  //     of truth for what was actually paid, and you should reconcile the
-  //     WhatsApp message against your Razorpay dashboard before treating a
-  //     booking as paid.
-  // For a small salon taking UPI/card payments with manual confirmation,
-  // this is a normal, common setup. If you later want server-side
-  // verification and fully automatic WhatsApp sending, the backend project
-  // from earlier plugs into this same form.
+  let cart = {}; // id -> qty
 
-  const RAZORPAY_KEY_ID = 'rzp_test_XXXXXXXXXXXXXX'; // <-- replace with your real Razorpay Key ID
-  const OWNER_WHATSAPP = '919566031143'; // owner's WhatsApp, country code + number, no + or spaces
-
-  const SERVICES = {
-    haircut:   { name: 'Signature Haircut',      amount: 500 },
-    beard:     { name: 'Beard Grooming',         amount: 400 },
-    shave:     { name: 'Classic Hot Shave',       amount: 300 },
-    facial:    { name: 'Revitalising Facial',     amount: 800 },
-    massage:   { name: 'Signature Massage',       amount: 600 },
-    fullhouse: { name: 'The Full House Package',  amount: 1500 },
-  };
-
-  const form = document.getElementById('bookingForm');
-  const success = document.getElementById('formSuccess');
-  const errorBox = document.getElementById('formError');
-  const bookBtn = document.getElementById('bookBtn');
-
-  function showError(msg) {
-    errorBox.textContent = msg;
-    errorBox.style.display = 'block';
+  function addToCart(id, btn){
+    cart[id] = (cart[id] || 0) + 1;
+    renderCart();
+    if(btn){
+      btn.textContent = 'Added ✓';
+      btn.classList.add('added');
+      setTimeout(()=>{ btn.textContent='Add to bag'; btn.classList.remove('added'); }, 1200);
+    }
+    showToast('Added to your bag');
   }
 
-  function waLink(phone, text) {
-    return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+  function changeQty(id, delta){
+    if(!cart[id]) return;
+    cart[id] += delta;
+    if(cart[id] <= 0) delete cart[id];
+    renderCart();
   }
 
-  form.addEventListener('submit', (e) => {
+  function removeItem(id){
+    delete cart[id];
+    renderCart();
+  }
+
+  function cartTotal(){
+    return Object.entries(cart).reduce((sum,[id,qty])=>{
+      const p = PRODUCTS.find(p=>p.id===id);
+      return sum + p.price*qty;
+    },0);
+  }
+
+  function renderCart(){
+    const body = document.getElementById('drawer-body');
+    const entries = Object.entries(cart);
+    const count = entries.reduce((s,[,q])=>s+q,0);
+    document.getElementById('cart-count').style.display = count ? 'flex' : 'none';
+    document.getElementById('cart-count').textContent = count;
+    document.getElementById('cart-total-badge').textContent = '₹' + cartTotal().toLocaleString('en-IN');
+    document.getElementById('drawer-subtotal').textContent = '₹' + cartTotal().toLocaleString('en-IN');
+
+    if(!entries.length){
+      body.innerHTML = `<div class="empty-cart">Your bag is empty.<br>Add something from the shop.</div>`;
+      return;
+    }
+    body.innerHTML = entries.map(([id,qty])=>{
+      const p = PRODUCTS.find(p=>p.id===id);
+      return `
+        <div class="cart-item">
+          <div class="thumb">${p.name.split(' ').map(w=>w[0]).join('').slice(0,2)}</div>
+          <div>
+            <h4>${p.name}</h4>
+            <div class="meta">₹${p.price.toLocaleString('en-IN')} each</div>
+            <div class="qty-ctrl">
+              <button onclick="changeQty('${id}',-1)">−</button>
+              <span>${qty}</span>
+              <button onclick="changeQty('${id}',1)">+</button>
+            </div>
+          </div>
+          <div>
+            <div class="line-price">₹${(p.price*qty).toLocaleString('en-IN')}</div>
+            <span class="remove" onclick="removeItem('${id}')">Remove</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function toggleCart(open){
+    document.getElementById('drawer').classList.toggle('open', open);
+    document.getElementById('overlay').classList.toggle('open', open);
+  }
+
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'), 2000);
+  }
+
+  // ---------- Checkout ----------
+  let payMethod = 'card';
+
+  function openCheckout(){
+    if(!Object.keys(cart).length){ showToast('Your bag is empty'); return; }
+    renderCheckoutForm();
+    document.getElementById('checkout-overlay').classList.add('open');
+  }
+
+  function closeCheckout(){
+    document.getElementById('checkout-overlay').classList.remove('open');
+  }
+
+  function selectPay(method){
+    payMethod = method;
+    renderCheckoutForm();
+  }
+
+  function renderCheckoutForm(){
+    const subtotal = cartTotal();
+    const shipping = subtotal > 3000 ? 0 : 150;
+    const total = subtotal + shipping;
+    const modal = document.getElementById('checkout-modal');
+
+    const cardTab = `
+      <div class="card-visual">
+        <div class="chip"></div>
+        <div class="num" id="card-preview-num">•••• •••• •••• ••••</div>
+        <div class="row"><span>CARD HOLDER<br><span id="card-preview-name">YOUR NAME</span></span><span id="card-preview-exp">MM/YY</span></div>
+      </div>
+      <div class="field" style="margin-bottom:16px;">
+        <label>Card number</label>
+        <input id="cc-num" placeholder="4242 4242 4242 4242" maxlength="19" oninput="formatCard(this)">
+      </div>
+      <div class="field-row" style="margin-bottom:16px;">
+        <div class="field"><label>Expiry</label><input id="cc-exp" placeholder="MM/YY" maxlength="5" oninput="formatExp(this)"></div>
+        <div class="field"><label>CVV</label><input id="cc-cvv" placeholder="123" maxlength="3" type="password"></div>
+      </div>
+      <div class="field" style="margin-bottom:16px;">
+        <label>Name on card</label>
+        <input id="cc-name" placeholder="As shown on card" oninput="document.getElementById('card-preview-name').textContent = this.value.toUpperCase() || 'YOUR NAME'">
+      </div>
+    `;
+
+    const upiTab = `
+      <div class="field" style="margin-bottom:16px;">
+        <label>UPI ID</label>
+        <input id="upi-id" placeholder="yourname@upi">
+      </div>
+      <p style="font-size:13px; color:var(--bone-dim); margin-bottom:16px;">You'll receive a payment request notification on your UPI app to approve.</p>
+    `;
+
+    const codTab = `<p style="font-size:14px; color:var(--bone-dim); margin-bottom:16px;">Pay in cash or by card when your order is delivered or picked up in-salon.</p>`;
+
+    modal.innerHTML = `
+      <div class="modal-head">
+        <h3>Checkout</h3>
+        <button class="modal-close" onclick="closeCheckout()">&times;</button>
+      </div>
+      <div class="pay-tabs">
+        <button class="pay-tab ${payMethod==='card'?'active':''}" onclick="selectPay('card')">Card</button>
+        <button class="pay-tab ${payMethod==='upi'?'active':''}" onclick="selectPay('upi')">UPI</button>
+        <button class="pay-tab ${payMethod==='cod'?'active':''}" onclick="selectPay('cod')">Pay at Salon</button>
+      </div>
+      ${payMethod==='card' ? cardTab : payMethod==='upi' ? upiTab : codTab}
+      <div class="order-summary">
+        <div class="row"><span>Subtotal</span><span>₹${subtotal.toLocaleString('en-IN')}</span></div>
+        <div class="row"><span>Shipping</span><span>${shipping===0?'Free':'₹'+shipping}</span></div>
+        <div class="row total"><span>Total</span><span>₹${total.toLocaleString('en-IN')}</span></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="submitPayment(${total})">
+        ${payMethod==='cod' ? 'Place order' : 'Pay ₹'+total.toLocaleString('en-IN')}
+      </button>
+      <div class="lock-note">🔒 This is a sample checkout — no real payment is processed.</div>
+    `;
+  }
+
+  function formatCard(el){
+    let v = el.value.replace(/\D/g,'').slice(0,16);
+    el.value = v.replace(/(.{4})/g,'$1 ').trim();
+    document.getElementById('card-preview-num').textContent = v.length ? el.value.padEnd(19,'•') : '•••• •••• •••• ••••';
+  }
+  function formatExp(el){
+    let v = el.value.replace(/\D/g,'').slice(0,4);
+    if(v.length>=3) v = v.slice(0,2)+'/'+v.slice(2);
+    el.value = v;
+    document.getElementById('card-preview-exp').textContent = v || 'MM/YY';
+  }
+
+  function submitPayment(total){
+    const modal = document.getElementById('checkout-modal');
+    const orderId = 'MN-' + Math.floor(100000 + Math.random()*899999);
+    modal.innerHTML = `
+      <div class="success-view">
+        <div class="success-icon">✓</div>
+        <h3>Order confirmed</h3>
+        <p>Thank you — your order <span class="order-id">#${orderId}</span> is confirmed.<br>A receipt has been sent to your email.</p>
+        <div class="order-summary" style="text-align:left;">
+          <div class="row total"><span>Total paid</span><span>₹${total.toLocaleString('en-IN')}</span></div>
+        </div>
+        <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="finishOrder()">Continue shopping</button>
+      </div>
+    `;
+  }
+
+  function finishOrder(){
+    cart = {};
+    renderCart();
+    closeCheckout();
+    toggleCart(false);
+    showToast('Order placed successfully');
+  }
+
+  renderCart();
+
+  // ---------- Booking form ----------
+  document.getElementById('booking-form').addEventListener('submit', function(e){
     e.preventDefault();
-    errorBox.style.display = 'none';
-
-    const name = document.getElementById('fname').value.trim();
-    const phone = document.getElementById('fphone').value.trim();
-    const serviceKey = document.getElementById('fservice').value;
-    const date = document.getElementById('fdate').value;
-    const time = document.getElementById('ftime').value;
-    const notes = document.getElementById('fnotes').value.trim();
-
-    if (!name || !phone || !serviceKey) {
-      showError('Please fill in your name, phone number and choose a service.');
-      return;
-    }
-    if (typeof Razorpay === 'undefined') {
-      showError('Payments aren\u2019t available right now — please try again in a moment or WhatsApp us directly.');
-      return;
-    }
-
-    const service = SERVICES[serviceKey];
-    bookBtn.disabled = true;
-    bookBtn.textContent = 'Processing…';
-
-    const rzp = new Razorpay({
-      key: RAZORPAY_KEY_ID,
-      amount: service.amount * 100, // paise
-      currency: 'INR',
-      name: 'LE NOIR',
-      description: `${service.name} — appointment booking`,
-      prefill: { name, contact: phone },
-      theme: { color: '#c9a227' },
-      handler: function (response) {
-        // Payment succeeded on Razorpay's side. Since there's no backend to
-        // silently notify anyone, we open a pre-filled WhatsApp message —
-        // one to the owner, one the customer can send too — so the booking
-        // reaches a human right away.
-        const details =
-          `New LE NOIR booking\n` +
-          `Name: ${name}\n` +
-          `Phone: ${phone}\n` +
-          `Service: ${service.name} (Rs.${service.amount})\n` +
-          `Date/Time: ${date || 'TBC'} ${time || ''}\n` +
-          `Notes: ${notes || '-'}\n` +
-          `Razorpay Payment ID: ${response.razorpay_payment_id}`;
-
-        window.open(waLink(OWNER_WHATSAPP, details), '_blank');
-
-        form.style.display = 'none';
-        success.style.display = 'block';
-        success.innerHTML =
-          'Payment received — a WhatsApp message with your booking details has been opened to send to us. ' +
-          'Please hit send there to confirm your slot.';
-
-        bookBtn.disabled = false;
-        bookBtn.textContent = 'Pay & Confirm Reservation';
-      },
-      modal: {
-        ondismiss: function () {
-          bookBtn.disabled = false;
-          bookBtn.textContent = 'Pay & Confirm Reservation';
-        },
-      },
-    });
-
-    rzp.on('payment.failed', function () {
-      showError('Payment failed or was cancelled. Please try again.');
-      bookBtn.disabled = false;
-      bookBtn.textContent = 'Pay & Confirm Reservation';
-    });
-
-    rzp.open();
+    document.getElementById('booking-confirm').style.display = 'block';
+    this.querySelector('button[type="submit"]').textContent = 'Request sent ✓';
+    setTimeout(()=>{
+      this.reset();
+      document.getElementById('booking-confirm').style.display = 'none';
+      this.querySelector('button[type="submit"]').textContent = 'Confirm appointment';
+    }, 4000);
   });
 </script>
 
